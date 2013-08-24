@@ -141,7 +141,6 @@ var game = {
         me.state.change(me.state.LOADING);
     },
 
-
     // Run on game resources loaded.
     loaded: function () {
         //cache font and images

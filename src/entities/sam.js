@@ -2,6 +2,7 @@
 game.Sam = me.ObjectEntity.extend({
 	init: function(x, y, settings) {
 		this.parent(x, y, settings);
+		this.nickname = settings.nickname || "Sam";
 
 		this.gravity = 0.0;
     this.origVelocity = new me.Vector2d( 7.0, 7.0 );
@@ -25,7 +26,7 @@ game.Sam = me.ObjectEntity.extend({
           [ index + 1, index ] );
     }
     this.renderable.setCurrentAnimation( this.directionString + "idle" );
-    this.renderable.animationspeed = 6;
+    this.renderable.animationspeed = 8;
 
     me.game.viewport.follow( this.pos, me.game.viewport.AXIS.BOTH );
 
