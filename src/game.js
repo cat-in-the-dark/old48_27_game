@@ -15,7 +15,7 @@ var game = {
 				me.plugin.register.defer(debugPanel, "debug");
 			});
 		}
-
+        me.debug.renderHitBox = true;
         // Initialize the audio.
         me.audio.init("mp3,ogg");
         //Import entities
