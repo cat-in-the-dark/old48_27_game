@@ -4,7 +4,7 @@ var game = {
     // Run on page load.
     onload : function () {
         // Initialize the video.
-        if (!me.video.init("screen", 640, 480, true, 'auto')) {
+        if (!me.video.init("screen", 960, 480, true, 'auto')) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -21,6 +21,8 @@ var game = {
         //Import entities
 
         me.entityPool.add("sam",game.Sam);
+        me.entityPool.add("ui",new  game.UI())
+        //me.entityPool.add("ui", game.UI);
 
         // bind keys
         me.input.bindKey( me.input.KEY.LEFT, "left" );

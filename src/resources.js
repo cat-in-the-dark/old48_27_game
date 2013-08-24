@@ -6,6 +6,7 @@ game.resources = [
 	 */
 	{name: "maptile",  type:"image", src: "resources/img/maptile.png"},
 	{name: "sam", type: "image", src: "resources/img/sam.png"},
+    {name: "panel-top", type: "image", src: "resources/img/panel.png"},
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
@@ -31,7 +32,8 @@ game.resources = [
 	 * @example
 	 * {name: "example_font", type: "image", src: "/resources/img/example_font.png"}
 	 */
-	{name: "32x32_font", type: "image", src: "resources/img/32x32_font.png"}
+	{name: "32x32_font", type: "image", src: "resources/img/32x32_font.png"},
+    {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"}
 
 ];
 game.ScoreObject = me.HUD_Item.extend({
@@ -53,4 +55,23 @@ game.ScoreObject = me.HUD_Item.extend({
 
     }
 
+});
+game.SecondsRemainsHUD = me.HUD_Item.extend({
+    init: function(x, y) {
+        // call the parent constructor
+        this.parent(x, y);
+        // create a font
+        this.font = new me.BitmapFont("16x16_font", 16);
+        this.font.set("right");
+    },
+
+    /* -----
+
+     draw our score
+
+     ------ */
+    draw: function(context, x, y) {
+        this.font.draw(context, parseFloat(this.value), this.pos.x + x, this.pos.y + y);
+
+    }
 });
