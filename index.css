@@ -16,7 +16,9 @@ body {
     /* Allow canvas to hit the edges of the browser viewport. */
     margin: 0;
 }
-
+#screen {
+    margin-top: -20px;
+}
 #screen canvas {
     margin: auto;
 

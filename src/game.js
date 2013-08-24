@@ -2,9 +2,9 @@
 /* Game namespace */
 var game = {
     // Run on page load.
-    "onload" : function () {
+    onload : function () {
         // Initialize the video.
-        if (!me.video.init("screen", 640, 640, true, 'auto')) {
+        if (!me.video.init("screen", 640, 480, true, 'auto')) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -18,6 +18,9 @@ var game = {
 
         // Initialize the audio.
         me.audio.init("mp3,ogg");
+        //Import entities
+
+        me.entityPool.add("sam",game.Sam);
 
         // bind keys
         me.input.bindKey( me.input.KEY.LEFT, "left" );
@@ -38,7 +41,7 @@ var game = {
 
 
     // Run on game resources loaded.
-    "loaded" : function () {
+    loaded : function () {
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
