@@ -6,7 +6,7 @@ game.Sam = me.ObjectEntity.extend({
 		this.gravity = 0.0;
     this.origVelocity = new me.Vector2d( 7.0, 7.0 );
     this.setVelocity( this.origVelocity.x, this.origVelocity.y );
-    this.friction(0.35,0.35);
+    this.setFriction(0.35,0.35);
 
 		me.input.bindKey( me.input.KEY.LEFT, "left" );
     me.input.bindKey( me.input.KEY.RIGHT, "right" );
