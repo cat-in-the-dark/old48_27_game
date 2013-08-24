@@ -50,6 +50,7 @@ game.ScoreObject = me.HUD_Item.extend({
      ------ */
     draw: function(context, x, y) {
         this.font.draw(context, this.value, this.pos.x + x, this.pos.y + y);
+
     }
 
 });
