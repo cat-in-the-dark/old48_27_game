@@ -42,8 +42,6 @@ var game = {
         me.state.change(me.state.LOADING);
     },
 
-
-
     // Run on game resources loaded.
     loaded : function () {
         me.state.set(me.state.MENU, new game.TitleScreen());

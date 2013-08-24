@@ -2,6 +2,7 @@
 game.Sam = me.ObjectEntity.extend({
 	init: function(x, y, settings) {
 		this.parent(x, y, settings);
+		this.nickname = settings.nickname || "Sam";
 
 		this.gravity = 0.0;
     this.origVelocity = new me.Vector2d( 7.0, 7.0 );
