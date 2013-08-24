@@ -4,9 +4,9 @@ game.resources = [
 	 * @example
 	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
-	{name: "maptile",  type:"image", src: "resources/img/maptile.png"},
+	{name: "maptile1",  type:"image", src: "resources/img/maptile1.png"},
 	{name: "sam", type: "image", src: "resources/img/sam.png"},
-    {name: "panel-top", type: "image", src: "resources/img/panel.png"},
+  {name: "panel-top", type: "image", src: "resources/img/panel.png"},
 	{name: "welcome_screen", type: "image", src: "resources/img/welcome_screen.png"},
 	{name: "gameover_screen", type: "image", src: "resources/img/gameover_screen.png"},
 	/* Atlases 

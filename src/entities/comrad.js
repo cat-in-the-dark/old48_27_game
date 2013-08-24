@@ -15,7 +15,7 @@ game.Comrad = me.ObjectEntity.extend({
     var directions = [ "up", "right", "down", "left" ];
     
     for ( var i = 0; i < directions.length; i++ )  {
-    	var index = 0;
+    	var index = i*3;
       this.renderable.addAnimation( directions[ i ] + "idle", [ index + 2 ] );
       this.renderable.addAnimation( directions[ i ] + "run",
           [ index + 1, index ] );
@@ -24,22 +24,22 @@ game.Comrad = me.ObjectEntity.extend({
     this.renderable.animationspeed = 5;
 
     game.comrads.push(this);
+    this.index = game.comrads.indexOf(this);
+    this.posX = (this.index % game.config.rowLength +1) * 48;
+    this.posY = Math.floor(this.index / game.config.rowLength +1) * 48;
 	},
 
 	checkMovement: function(){
-		//move
-      //this.vel.x = game.sam.vel.x;
-      //this.vel.y = game.sam.vel.y;
-      //x
-      var dist = this.distanceTo(game.sam);
-      var distX = Math.cos(this.angleTo(game.sam)) * dist;
-      var distY = Math.sin(this.angleTo(game.sam)) * dist;
-      if (Math.abs(distX) > this.range){
-      	this.vel.x += (distX > 0.0) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
-      }
-      if (Math.abs(distY) > this.range){
-      	this.vel.y += (distY > 0.0) ? this.accel.y * me.timer.tick : -this.accel.y * me.timer.tick;
-      }
+    var dist = this.distanceTo(game.sam);
+    var distX = Math.cos(this.angleTo(game.sam)) * dist;
+    var distY = Math.sin(this.angleTo(game.sam)) * dist;
+    if (Math.abs(distX) > this.posX){
+    	this.vel.x += (distX > 0.0) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
+    }
+    if (Math.abs(distY) > this.posY){
+    	this.vel.y += (distY > 0.0) ? this.accel.y * me.timer.tick : -this.accel.y * me.timer.tick;
+    }
+    this.directionString = game.sam.directionString;
 	},
 
 	updateAnimation: function(){
