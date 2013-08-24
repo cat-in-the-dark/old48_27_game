@@ -2,6 +2,9 @@
 /* Game namespace */
 var game = {
     // Run on page load.
+    comrads: [],
+    sam: null,
+
     onload : function () {
         // Initialize the video.
         if (!me.video.init("screen", 960, 480, true, 'auto')) {
@@ -15,14 +18,13 @@ var game = {
 				me.plugin.register.defer(debugPanel, "debug");
 			});
 		}
-
+        me.debug.renderHitBox = true;
         // Initialize the audio.
         me.audio.init("mp3,ogg");
         //Import entities
 
         me.entityPool.add("sam",game.Sam);
-        me.entityPool.add("ui",new  game.UI())
-        //me.entityPool.add("ui", game.UI);
+        me.entityPool.add("comrad",game.Comrad);
 
         // bind keys
         me.input.bindKey( me.input.KEY.LEFT, "left" );
@@ -46,8 +48,10 @@ var game = {
     loaded : function () {
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
+        me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
 
         // Start the game.
+        //me.state.change(me.state.MENU);
         me.state.change(me.state.PLAY);
     }
 };

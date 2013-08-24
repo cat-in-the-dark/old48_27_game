@@ -7,6 +7,8 @@ game.resources = [
 	{name: "maptile",  type:"image", src: "resources/img/maptile.png"},
 	{name: "sam", type: "image", src: "resources/img/sam.png"},
     {name: "panel-top", type: "image", src: "resources/img/panel.png"},
+	{name: "welcome_screen", type: "image", src: "resources/img/welcome_screen.png"},
+	{name: "gameover_screen", type: "image", src: "resources/img/gameover_screen.png"},
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
