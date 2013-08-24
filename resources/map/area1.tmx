@@ -55,6 +55,34 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
+  <object name="comrad" x="426" y="386" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="377" y="330" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="293" y="325" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="251" y="359" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="collision" width="25" height="25">
   <data encoding="base64">

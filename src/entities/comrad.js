@@ -4,10 +4,11 @@ game.Comrad = me.ObjectEntity.extend({
 		this.parent(x, y, settings);
 
 		this.gravity = 0.0;
-    this.origVelocity = new me.Vector2d( 7.0, 7.0 );
+    this.origVelocity = new me.Vector2d( 5.0, 5.0 );
     this.setVelocity( this.origVelocity.x, this.origVelocity.y );
-    this.setFriction(0.35,0.35);
+    this.setFriction(0.55,0.55);
 
+    this.range = Math.random()*game.config.circleDist + game.config.minDist;
    // this.updateColRect(-1, 0, 4, 30);
 
     this.directionString = "up";
@@ -20,7 +21,7 @@ game.Comrad = me.ObjectEntity.extend({
           [ index + 1, index ] );
     }
     this.renderable.setCurrentAnimation( this.directionString + "idle" );
-    this.renderable.animationspeed = 8;
+    this.renderable.animationspeed = 5;
 
     game.comrads.push(this);
 	},
@@ -31,8 +32,14 @@ game.Comrad = me.ObjectEntity.extend({
       //this.vel.y = game.sam.vel.y;
       //x
       var dist = this.distanceTo(game.sam);
-      
-      //if (Math.cos())
+      var distX = Math.cos(this.angleTo(game.sam)) * dist;
+      var distY = Math.sin(this.angleTo(game.sam)) * dist;
+      if (Math.abs(distX) > this.range){
+      	this.vel.x += (distX > 0.0) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
+      }
+      if (Math.abs(distY) > this.range){
+      	this.vel.y += (distY > 0.0) ? this.accel.y * me.timer.tick : -this.accel.y * me.timer.tick;
+      }
 	},
 
 	updateAnimation: function(){

@@ -25,7 +25,7 @@ game.Sam = me.ObjectEntity.extend({
           [ index + 1, index ] );
     }
     this.renderable.setCurrentAnimation( this.directionString + "idle" );
-    this.renderable.animationspeed = 6;
+    this.renderable.animationspeed = 8;
 
     me.game.viewport.follow( this.pos, me.game.viewport.AXIS.BOTH );
 
