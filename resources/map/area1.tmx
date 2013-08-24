@@ -27,7 +27,28 @@
   </data>
  </layer>
  <objectgroup name="entities" width="25" height="25">
-  <object name="sam" x="259" y="278" width="32" height="32">
+  <object name="sam" x="339" y="377" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="390" y="440" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="342" y="438" width="32" height="32">
+   <properties>
+    <property name="image" value="sam"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="comrad" x="288" y="437" width="32" height="32">
    <properties>
     <property name="image" value="sam"/>
     <property name="spriteheight" value="32"/>

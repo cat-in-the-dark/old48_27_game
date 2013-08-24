@@ -2,6 +2,9 @@
 /* Game namespace */
 var game = {
     // Run on page load.
+    comrads: [],
+    sam: null,
+
     onload : function () {
         // Initialize the video.
         if (!me.video.init("screen", 640, 480, true, 'auto')) {
@@ -21,6 +24,7 @@ var game = {
         //Import entities
 
         me.entityPool.add("sam",game.Sam);
+        me.entityPool.add("comrad",game.Comrad);
 
         // bind keys
         me.input.bindKey( me.input.KEY.LEFT, "left" );
@@ -47,6 +51,7 @@ var game = {
         me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
 
         // Start the game.
-        me.state.change(me.state.MENU);
+        //me.state.change(me.state.MENU);
+        me.state.change(me.state.PLAY);
     }
 };
