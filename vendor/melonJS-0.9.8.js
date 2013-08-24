@@ -4,7 +4,8 @@
  * http://www.melonjs.org
  *
  * melonJS is licensed under the MIT License.
- * http://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/mit-lice
+ * nse.php
  *
  */
 
@@ -7403,6 +7404,8 @@ window.me = window.me || {};
 					default : 
 						break;
 				};
+
+                //alert('draw the string');
 				
 				// draw the string
 				for ( var c = 0,len = string.length; c < len; c++) {
@@ -7410,6 +7413,7 @@ window.me = window.me || {};
 					var idx = string.charCodeAt(c) - this.firstChar;
 					if (idx >= 0) {
 						// draw it
+                        //alert('draw image!');
 						context.drawImage(this.font,
 							this.size.x * (idx % this.charCount), 
 							this.size.y * ~~(idx / this.charCount), 
@@ -9130,6 +9134,11 @@ window.me = window.me || {};
 		
 					// update the "front" canvas size
 					deferResizeId = me.video.updateDisplaySize.defer(scale,scale);
+
+                    //##ENGINE PATCH1
+                    //if(me.video.panelResize)
+                        me.video.panelResize(scale);
+                    //
 				} else {
 					// scale the display canvas to fit with the parent container
 					deferResizeId = me.video.updateDisplaySize.defer( 
