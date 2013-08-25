@@ -1,8 +1,9 @@
 // TODO
 game.Sam = me.ObjectEntity.extend({
 	init: function(x, y, settings) {
-		this.parent(x, y, settings);
-		this.nickname = settings.nickname || "Sam";
+    settings.image = "sam";  
+    this.parent(x, y, settings);
+    this.nickname = settings.nickname || "Sam";
 
 		this.gravity = 0.0;
     this.origVelocity = new me.Vector2d( 7.0, 7.0 );
@@ -21,15 +22,15 @@ game.Sam = me.ObjectEntity.extend({
     
     for ( var i = 0; i < directions.length; i++ )  {
     	var index = i*3;
-      this.renderable.addAnimation( directions[ i ] + "idle", [ index + 2 ] );
+      this.renderable.addAnimation( directions[ i ] + "idle", [ index ] );
       this.renderable.addAnimation( directions[ i ] + "run",
-          [ index + 1, index ] );
+          [ index + 1, index + 2 ] );
     }
     this.renderable.setCurrentAnimation( this.directionString + "idle" );
     this.renderable.animationspeed = 8;
 
     me.game.viewport.follow( this.pos, me.game.viewport.AXIS.BOTH );
-
+    this.type = me.game.COMRADE_OBJECT;
     game.sam = this;
 	},
 

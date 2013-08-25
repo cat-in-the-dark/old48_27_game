@@ -4,11 +4,14 @@ game.resources = [
 	 * @example
 	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
-	{name: "maptile1",  type:"image", src: "resources/img/maptile1.png"},
+	{name: "maptile1",  type: "image", src: "resources/img/maptile1.png"},
 	{name: "sam", type: "image", src: "resources/img/sam.png"},
+  {name: "comrad", type: "image", src: "resources/img/comrad.png"},
   {name: "panel-top", type: "image", src: "resources/img/panel.png"},
 	{name: "welcome_screen", type: "image", src: "resources/img/welcome_screen.png"},
 	{name: "gameover_screen", type: "image", src: "resources/img/gameover_screen.png"},
+	//enemies
+	{name: "tempenemy", type: "image", src: "resources/img/tempenemy.png" },
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
@@ -35,7 +38,7 @@ game.resources = [
 	 * {name: "example_font", type: "image", src: "/resources/img/example_font.png"}
 	 */
 	{name: "32x32_font", type: "image", src: "resources/img/32x32_font.png"},
-    {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"}
+  {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"}
 
 ];
 game.ScoreObject = me.HUD_Item.extend({
