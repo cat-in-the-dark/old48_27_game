@@ -102,7 +102,7 @@ game.panel = {
             if (note.name == name)
                 note.alive = false;
         }
-    }
+    },
     clear: function(){
         this.deathNote = [];
         this.draw();
