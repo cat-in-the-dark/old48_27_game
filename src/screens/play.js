@@ -100,8 +100,10 @@ game.PlayScreen = me.ScreenObject.extend({
         var shadow = new game.ShadowEntity();
         me.game.add(shadow,game.config.SHADOW_LEVEL);
         me.game.sort();//MAGICK
-
-        setInterval(function () {
+        if (game.interval){
+            clearTimeout(game.interval);
+        }
+        game.interval = setInterval(function () {
             if(game.timerPaused)
                 return;
             var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));

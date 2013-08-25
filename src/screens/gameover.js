@@ -11,7 +11,6 @@ game.GameOverScreen = me.ScreenObject.extend({
 		}
 		me.input.bindKey(me.input.KEY.ESC, "esc", true);
 
-
 		game.timerPaused = true;
 		game.comrads = [];
 		game.panel.clear();
