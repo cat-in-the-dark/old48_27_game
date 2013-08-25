@@ -49,6 +49,8 @@ game.resources = [
      */
     {name: "32x32_font", type: "image", src: "resources/img/32x32_font.png"},
     {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"},
-    {name: "16x16_font_crossed", type: "image", src: "resources/img/16x16_font_crossed.png"}
+    {name: "16x16_font_crossed", type: "image", src: "resources/img/16x16_font_crossed.png"},
+
+    {name: "track1", type: "audio", src: "resources/sound/bgm/", channel : 1}
 
 ];
