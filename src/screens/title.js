@@ -18,8 +18,8 @@ game.TitleScreen = me.ScreenObject.extend({
 	
 	draw: function(context) {
 		context.drawImage(this.title, 0, 0);
-		title_string = "PRESS ENTER TO PLAY";
-		string_width = this.font.measureText(context, title_string).width;
+		var title_string = "PRESS ENTER TO PLAY";
+		var string_width = this.font.measureText(context, title_string).width;
 		this.font.draw(context, title_string, (me.video.getWidth()-string_width)/2, 0);
 	},
 	

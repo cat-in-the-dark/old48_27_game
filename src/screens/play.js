@@ -6,10 +6,12 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.addHUD(0, 0, 960, 480);
         // add a new HUD item
         me.game.HUD.addItem("secondToDie", new game.SecondsRemainsHUD(900,10));
+        me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, "test_character", "WELCOME, COMMRAD!\nPREPARE TO HELL!"));
         me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
        //me.game.HUD.addItem("lol", new game.panel());
         //me.game.HUD.addItem("score2", new game.ScoreObject(300, 10));
         me.game.HUD.updateItemValue("secondToDie", 8.8);
+
         //me.game.HUD.addItem("ui", new game.UI());
         //me.game.HUD.add(new game.HUD_Heart(0,0));
 
