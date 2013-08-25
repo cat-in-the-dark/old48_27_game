@@ -103,4 +103,8 @@ game.panel = {
                 note.alive = false;
         }
     }
+    clear: function(){
+        this.deathNote = [];
+        this.draw();
+    }
 };
