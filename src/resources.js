@@ -18,6 +18,8 @@ game.resources = [
     {name: "game_end_screen", type: "image", src: "resources/img/game_end_screen.png"},
     {name: "dialog", type: "image", src: "resources/img/dialog_background.png"},
     {name: "character_general", type: "image", src: "resources/img/character_general.png"},
+    {name: "intro_screen", type: "image", src: "resources/img/intro_screen.png"},
+
 
     /* Atlases
      * @example

@@ -62,9 +62,10 @@ var game = {
         me.state.set(me.state.PLAY, new game.PlayScreen());
         me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
         me.state.set(me.state.GAME_END, new game.GameEndScreen());
+        me.state.set(me.state.CREDITS, new game.IntroScreen());
 
         // Start the game.
         //me.state.change(me.state.MENU);
-        me.state.change(me.state.PLAY);
+        me.state.change(me.state.CREDITS);
     }
 };

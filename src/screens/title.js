@@ -1,7 +1,6 @@
 game.TitleScreen = me.ScreenObject.extend({
 	init: function() {
 		this.parent(true);
-		this.title = null;
 		this.font = null;
 	},
 
@@ -11,16 +10,12 @@ game.TitleScreen = me.ScreenObject.extend({
 	onResetEvent: function() {	
 		if (this.title == null) {
 			this.title = me.loader.getImage("welcome_screen");
-			this.font = new me.BitmapFont("32x32_font", 32);
 		}
 		me.input.bindKey(me.input.KEY.ENTER, "enter", true);
 	},
 	
 	draw: function(context) {
 		context.drawImage(this.title, 0, 0);
-		var title_string = "PRESS ENTER TO PLAY";
-		var string_width = this.font.measureText(context, title_string).width;
-		this.font.draw(context, title_string, (me.video.getWidth()-string_width)/2, 0);
 	},
 	
 	// update function
@@ -36,7 +31,6 @@ game.TitleScreen = me.ScreenObject.extend({
 	 *  action to perform when leaving this screen (state change)
 	 */
 	onDestroyEvent: function() {
-		this.font = null;
 		this.title = null;
 		me.input.unbindKey(me.input.KEY.ENTER);
 	}
