@@ -41,7 +41,8 @@ game.resources = [
 	 * {name: "example_font", type: "image", src: "/resources/img/example_font.png"}
 	 */
 	{name: "32x32_font", type: "image", src: "resources/img/32x32_font.png"},
-    {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"}
+    {name: "16x16_font", type: "image", src: "resources/img/16x16_font.png"},
+    {name: "16x16_font_crossed", type: "image", src: "resources/img/16x16_font_crossed.png"}
 
 ];
 game.ScoreObject = me.HUD_Item.extend({

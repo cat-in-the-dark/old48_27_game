@@ -29,6 +29,10 @@ var panel = {
                     //alert('scale font');
                     that.font.resize(scale);
                 }
+                if(that.fontCrossed){
+                    //alert('scale font');
+                    that.fontCrossed.resize(scale);
+                }
 //                 alert(this.titleSize);
                 if(that.resourceLoaded != null && that.resourceLoaded){
                     //alert('draw');
@@ -49,11 +53,12 @@ var panel = {
         this.font = new me.BitmapFont('16x16_font',16);
         this.font.set('left');
         this.font.resize(this.fontSize / 16);
-        this.panelImage = (me.loader.getImage("panel-left"));
-        this.deathNote = [];
 
-        for(var  i=0; i< deathList.length; i++)
-                this.deathNote.push( new PlayerStat(deathList[i]));
+        this.fontCrossed = new me.BitmapFont('16x16_font_crossed',16);
+        this.fontCrossed.set('left');
+        this.fontCrossed.resize(this.fontSize / 16);
+
+        this.panelImage = (me.loader.getImage("panel-left"));
 
         this.resourceLoaded = true;
     },
@@ -73,14 +78,23 @@ var panel = {
         var x = 20;
         var lineInterval = 30;
 
+        if(!this.deathNote)
+            return;
+
         for(var i =0; i < this.deathNote.length; i++){
             var note = this.deathNote[i];
             if(note.alive == true)
                 this.font.draw(this.context2d, note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
             else
-                this.font.draw(this.context2d, 'X ' + note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
+                this.fontCrossed.draw(this.context2d,note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
             currentY +=  lineInterval;
         }
+    },
+    "setPayload" : function(deathList){
+        this.deathNote = [];
+
+        for(var  i=0; i< deathList.length; i++)
+            this.deathNote.push( new PlayerStat(deathList[i]));
     },
     "kill" : function(name){
         for(var i =0; i < this.deathNote.length; i++){
@@ -144,8 +158,14 @@ var game = {
     // Run on game resources loaded.
     loaded: function () {
         //cache font and images
-        panel.resourceLoad(['PABLO', 'TILL']);
-        panel.kill('PABLO');
+        //alert(me.game.getObjectCount());
+//        var names = [];
+//        for( var i=0; i< this.comrads.length;i++){
+//            names.push(me.game.comrads[i].nickname);
+//        }
+        //alert(names);
+        panel.resourceLoad();
+        //panel.kill('PABLO');
 
        //покрасим панель
        panel.draw();
