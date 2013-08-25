@@ -6,6 +6,7 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function () {
+
         me.game.addHUD(0, 0, 960, 480);
         // add a new HUD item
         me.game.HUD.addItem("secondToDie", new game.SecondsRemainsHUD(900,10));
@@ -25,6 +26,16 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.sort();
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.levelDirector.loadLevel("area1");
+
+        var names = [];
+        //alert(game.comrads[0]);
+        for( var i=0; i<game.comrads.length;i++){
+            names.push(game.comrads[i].nickname.toUpperCase());
+        }
+        //alert(names);
+        panel.setPayload(names);
+        panel.kill('PABLO');
+        panel.draw();
     },
 
     update: function() {

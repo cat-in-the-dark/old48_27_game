@@ -29,6 +29,10 @@ var panel = {
                     //alert('scale font');
                     that.font.resize(scale);
                 }
+                if(that.fontCrossed){
+                    //alert('scale font');
+                    that.fontCrossed.resize(scale);
+                }
 //                 alert(this.titleSize);
                 if(that.resourceLoaded != null && that.resourceLoaded){
                     //alert('draw');
@@ -49,11 +53,12 @@ var panel = {
         this.font = new me.BitmapFont('16x16_font',16);
         this.font.set('left');
         this.font.resize(this.fontSize / 16);
-        this.panelImage = (me.loader.getImage("panel-left"));
-        this.deathNote = [];
 
-        for(var  i=0; i< deathList.length; i++)
-                this.deathNote.push( new PlayerStat(deathList[i]));
+        this.fontCrossed = new me.BitmapFont('16x16_font_crossed',16);
+        this.fontCrossed.set('left');
+        this.fontCrossed.resize(this.fontSize / 16);
+
+        this.panelImage = (me.loader.getImage("panel-left"));
 
         this.resourceLoaded = true;
     },
@@ -73,14 +78,23 @@ var panel = {
         var x = 20;
         var lineInterval = 30;
 
+        if(!this.deathNote)
+            return;
+
         for(var i =0; i < this.deathNote.length; i++){
             var note = this.deathNote[i];
             if(note.alive == true)
                 this.font.draw(this.context2d, note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
             else
-                this.font.draw(this.context2d, 'X ' + note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
+                this.fontCrossed.draw(this.context2d,note.name, this.titleSize / 32 * x, this.titleSize / 32 *currentY );
             currentY +=  lineInterval;
         }
+    },
+    "setPayload" : function(deathList){
+        this.deathNote = [];
+
+        for(var  i=0; i< deathList.length; i++)
+            this.deathNote.push( new PlayerStat(deathList[i]));
     },
     "kill" : function(name){
         for(var i =0; i < this.deathNote.length; i++){
@@ -90,12 +104,13 @@ var panel = {
         }
     }
 };
-
+me.game.COMRADE_OBJECT = 10;
 var game = {
     // Run on page load.
     comrads: [],
     sam: null,
-    other_canvas : null,
+    bomb: null,
+    other_canvas : null,      
 
     onload: function () {
 
@@ -108,9 +123,7 @@ var game = {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
-//        this.other_canvas = me.video.createCanvas(200,100);
-//        document.getElementById("screen2").appendChild(this.other_canvas );
-        // add "#debug" to the URL to enable the debug Panel
+
         if (document.location.hash === "#debug") {
             window.onReady(function () {
                 me.plugin.register.defer(debugPanel, "debug");
@@ -121,9 +134,9 @@ var game = {
         me.audio.init("mp3,ogg");
         //Import entities
 
-        me.entityPool.add("sam", game.Sam);
-        me.entityPool.add("comrad", game.Comrad);
-        me.entityPool.add("other_panel", game.panel);
+        me.entityPool.add("bomb",game.BombEntity);
+        me.entityPool.add("sam",game.Sam);
+        me.entityPool.add("comrad",game.Comrad);
 
         // bind keys
         me.input.bindKey(me.input.KEY.LEFT, "left");
@@ -143,20 +156,19 @@ var game = {
 
     // Run on game resources loaded.
     loaded: function () {
-        //cache font and images
-        panel.resourceLoad(['PABLO', 'TILL']);
-        panel.kill('PABLO');
+      panel.resourceLoad();
+      //panel.kill('PABLO');
 
-       //покрасим панель
-       panel.draw();
+      //покрасим панель
+      panel.draw();
 
-        me.state.set(me.state.MENU, new game.TitleScreen());
-        me.state.set(me.state.PLAY, new game.PlayScreen());
-        me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
-        me.state.set(me.state.GAME_END, new game.GameEndScreen());
+      me.state.set(me.state.MENU, new game.TitleScreen());
+      me.state.set(me.state.PLAY, new game.PlayScreen());
+      me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
+      me.state.set(me.state.GAME_END, new game.GameEndScreen());
 
-        // Start the game.
-        //me.state.change(me.state.MENU);
-        me.state.change(me.state.PLAY);
+      // Start the game.
+      //me.state.change(me.state.MENU);
+      me.state.change(me.state.PLAY);
     }
 };
