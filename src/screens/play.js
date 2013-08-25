@@ -7,7 +7,13 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.addHUD(0, 0, 960, 480);
         // add a new HUD item
         me.game.HUD.addItem("secondsToDie", new game.SecondsRemainsHUD(600,10));
-        me.game.HUD.updateItemValue("secondsToDie", 10);
+        me.game.HUD.setItemValue("secondsToDie", 10);
+
+        me.game.HUD.addItem("grenadesRemains", new game.GranadesRemainsHUD(500,10));
+        me.game.HUD.setItemValue("grenadesRemains", game.nGranades);
+
+//        me.game.HUD.addItem("grenadesRemainsIcon", new game.GranadesRemainsHUD(450,10));
+
         me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, "test_character", "WELCOME, COMMRAD!\nPREPARE TO HELL!"));
         //me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
        //me.game.HUD.addItem("lol", new game.panel());

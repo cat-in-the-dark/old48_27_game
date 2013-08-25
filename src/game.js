@@ -110,6 +110,7 @@ var game = {
     comrads: [],
     sam: null,
     other_canvas : null,
+    nGranades : 30,
 
     onload: function () {
 

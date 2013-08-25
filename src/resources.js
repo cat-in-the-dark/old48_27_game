@@ -85,6 +85,43 @@ game.SecondsRemainsHUD = me.HUD_Item.extend({
     }
 });
 
+game.GranadesRemainsHUD = me.HUD_Item.extend({
+    init: function(x, y) {
+        // call the parent constructor
+        this.parent(x, y);
+        // create a font
+        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font.set("right");
+    },
+
+    /* -----
+
+     draw our score
+
+     ------ */
+    draw: function(context, x, y) {
+        this.font.draw(context, parseFloat(this.value), this.pos.x + x, this.pos.y + y);
+    }
+});
+
+game.GranadesIconHUD = me.Renderable.extend({
+    init: function(x, y) {
+        // call the parent constructor
+        this.parent(x, y);
+        // create a font
+        this.image = me.loader.getImage("test_character");
+    },
+
+    /* -----
+
+     draw our score
+
+     ------ */
+    draw: function(context, x, y) {
+        context.drawImage(this.image,100,100);
+    }
+});
+
 game.DialogHUD = me.HUD_Item.extend({
 	init: function(x, y, character_name, message_string) {
 		this.parent(x, y);
