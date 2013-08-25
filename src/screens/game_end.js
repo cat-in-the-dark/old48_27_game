@@ -6,6 +6,9 @@ game.GameEndScreen = me.ScreenObject.extend({
 	},
 
 	onResetEvent: function() {
+//        game.panel.clear();
+//        game.panel.resetBackround();
+
 		if (this.title == null) {
 			this.title = me.loader.getImage("game_end_screen");
 			this.font = new me.BitmapFont("32x32_font", 32);

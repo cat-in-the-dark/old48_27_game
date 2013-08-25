@@ -57,7 +57,8 @@ var game = {
         //panel.kill('PABLO');
 
         //покрасим панель
-        game.panel.draw();
+        //game.panel.draw();
+        game.panel.resetBackround();
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());

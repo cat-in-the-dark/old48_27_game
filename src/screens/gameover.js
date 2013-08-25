@@ -3,9 +3,12 @@ game.GameOverScreen = me.ScreenObject.extend({
 		this.parent(true);
 		this.title = null;
 		this.font = null;
+//        game.panel.clear();
+//        game.panel.resetBackround();
 	},
 
 	onResetEvent: function() {
+
 		if (this.title == null) {
 			this.title = me.loader.getImage("gameover_screen");
 			this.font = new me.BitmapFont("32x32_font", 32);

@@ -81,6 +81,7 @@ game.PlayScreen = me.ScreenObject.extend({
         game.panel.setPayload(names);
         //panel.kill('PABLO');
         game.panel.draw();
+        //game.panel.resetBackround();
         //FIXME: call timeToDie
 
         //push first message
