@@ -6,6 +6,7 @@ var game = {
     other_canvas: null,
     nGranades: 30,
     bomb: null,
+    timerPaused: true,
 
 
     onload: function () {

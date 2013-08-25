@@ -20,10 +20,12 @@ game.PlayScreen = me.ScreenObject.extend({
 //        me.game.HUD.addItem("dialogHUD", this.dialogHUD);
 
         this.iterating = true;
+        game.timerPaused = true;
 
         var task = this.stack.shift();
         if(task == undefined || task == null){
             this.iterating = false;
+            game.timerPaused = false;
             return;
         }
         var image;
@@ -33,6 +35,10 @@ game.PlayScreen = me.ScreenObject.extend({
         }
         //alert(task.text);
         me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, image, task.text));
+    },
+    clear: function (){
+        this.stack.clear();
+        me.game.HUD.removeItem("dialogHUD");
     }
     ,
     /**
@@ -85,6 +91,8 @@ game.PlayScreen = me.ScreenObject.extend({
         this.iterate();
 
         setInterval(function () {
+            if(game.timerPaused)
+                return;
             var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));
 //            console.log(typeof  remains);
 //            console.log(remains);
