@@ -1,4 +1,7 @@
 game.PlayScreen = me.ScreenObject.extend({
+    init: function() {
+        this.parent(true);
+    },
     /**
      *  action to perform on state change
      */
@@ -14,8 +17,14 @@ game.PlayScreen = me.ScreenObject.extend({
 
 //        me.game.HUD.addItem("grenadesRemainsIcon", new game.GranadesRemainsHUD(450,10));
 
-        me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, "test_character", "WELCOME, COMMRAD!\nPREPARE TO HELL!"));
-        //me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
+
+        var message_intro = "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
+            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!";
+        this.dialogHUD = new game.DialogHUD(0, 320, "character_general", message_intro)
+        me.game.HUD.addItem("dialogHUD", this.dialogHUD);
+        me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
+
+
        //me.game.HUD.addItem("lol", new game.panel());
         //me.game.HUD.addItem("score2", new game.ScoreObject(300, 10));
         //me.game.HUD.updateItemValue("secondToDie", 8.8);
@@ -25,6 +34,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
         // make sure everything is in the right order
         me.game.sort();
+        me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.levelDirector.loadLevel("area1");
 
         var names = [];
@@ -55,6 +65,13 @@ game.PlayScreen = me.ScreenObject.extend({
         },1000);
     },
 
+    update: function() {
+        // enter pressed ?
+        if (me.input.isKeyPressed('enter')) {
+            me.game.HUD.removeItem("dialogHUD");
+        }
+        return true;
+    },
 
     /**
      *  action to perform when leaving this screen (state change)
@@ -63,5 +80,6 @@ game.PlayScreen = me.ScreenObject.extend({
         ; // TODO
         // remove the HUD
         me.game.disableHUD();
+        me.input.unbindKey(me.input.KEY.ENTER);
     }
 });

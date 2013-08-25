@@ -104,13 +104,15 @@ var panel = {
         }
     }
 };
-
+me.game.COMRADE_OBJECT = 10;
 var game = {
     // Run on page load.
     comrads: [],
     sam: null,
     other_canvas : null,
     nGranades : 30,
+    bomb: null,
+
 
     onload: function () {
 
@@ -123,9 +125,7 @@ var game = {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
-//        this.other_canvas = me.video.createCanvas(200,100);
-//        document.getElementById("screen2").appendChild(this.other_canvas );
-        // add "#debug" to the URL to enable the debug Panel
+
         if (document.location.hash === "#debug") {
             window.onReady(function () {
                 me.plugin.register.defer(debugPanel, "debug");
@@ -136,9 +136,9 @@ var game = {
         me.audio.init("mp3,ogg");
         //Import entities
 
-        me.entityPool.add("sam", game.Sam);
-        me.entityPool.add("comrad", game.Comrad);
-        me.entityPool.add("other_panel", game.panel);
+        me.entityPool.add("bomb",game.BombEntity);
+        me.entityPool.add("sam",game.Sam);
+        me.entityPool.add("comrad",game.Comrad);
 
         // bind keys
         me.input.bindKey(me.input.KEY.LEFT, "left");
@@ -158,26 +158,19 @@ var game = {
 
     // Run on game resources loaded.
     loaded: function () {
-        //cache font and images
-        //alert(me.game.getObjectCount());
-//        var names = [];
-//        for( var i=0; i< this.comrads.length;i++){
-//            names.push(me.game.comrads[i].nickname);
-//        }
-        //alert(names);
-        panel.resourceLoad();
-        //panel.kill('PABLO');
+      panel.resourceLoad();
+      //panel.kill('PABLO');
 
-       //покрасим панель
-       panel.draw();
+      //покрасим панель
+      panel.draw();
 
-        me.state.set(me.state.MENU, new game.TitleScreen());
-        me.state.set(me.state.PLAY, new game.PlayScreen());
-        me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
-        me.state.set(me.state.GAME_END, new game.GameEndScreen());
+      me.state.set(me.state.MENU, new game.TitleScreen());
+      me.state.set(me.state.PLAY, new game.PlayScreen());
+      me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
+      me.state.set(me.state.GAME_END, new game.GameEndScreen());
 
-        // Start the game.
-        //me.state.change(me.state.MENU);
-        me.state.change(me.state.PLAY);
+      // Start the game.
+      //me.state.change(me.state.MENU);
+      me.state.change(me.state.PLAY);
     }
 };

@@ -37,7 +37,6 @@
   </object>
   <object name="comrad" x="73" y="572" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Pablo"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -45,7 +44,6 @@
   </object>
   <object name="comrad" x="109" y="697" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Serg"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -53,7 +51,6 @@
   </object>
   <object name="comrad" x="59" y="697" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Hulio"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -61,7 +58,6 @@
   </object>
   <object name="comrad" x="183" y="692" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Ari"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -69,15 +65,13 @@
   </object>
   <object name="comrad" x="165" y="594" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="John"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="comrad" x="12" y="694" width="32" height="32">
+  <object name="comrad" x="259" y="698" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Gustav"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -93,7 +87,6 @@
   </object>
   <object name="comrad" x="235" y="644" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Till"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
@@ -101,8 +94,20 @@
   </object>
   <object name="comrad" x="219" y="585" width="32" height="32">
    <properties>
-    <property name="image" value="sam"/>
     <property name="nickname" value="Igor"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="bomb" x="513" y="582" width="64" height="64">
+   <properties>
+    <property name="spriteheight" value="48"/>
+    <property name="spritewidth" value="48"/>
+   </properties>
+  </object>
+  <object name="comrad" x="39" y="623" width="32" height="32">
+   <properties>
+    <property name="nickname" value="Ugo"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
    </properties>
