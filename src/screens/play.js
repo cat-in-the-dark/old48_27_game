@@ -1,7 +1,40 @@
+ function Task(role, text){
+    this.role = role;
+    this.text = text;
+ }
 game.PlayScreen = me.ScreenObject.extend({
+
+    stack : [],
+
     init: function () {
         this.parent(true);
+        game.playScreen = this;
     },
+    pushMessage: function(role, text){
+        this.stack.push(new Task(role, text));
+    },
+    iterate : function(){
+//        var message_intro = "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
+//            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!";
+//        this.dialogHUD = new game.DialogHUD(0, 320, "character_general", message_intro)
+//        me.game.HUD.addItem("dialogHUD", this.dialogHUD);
+
+        this.iterating = true;
+
+        var task = this.stack.shift();
+        if(task == undefined || task == null){
+            this.iterating = false;
+            return;
+        }
+        var image;
+        switch (task.role){
+            case game.config.roles.General : image = "character_general";   break;
+            case game.config.roles.Girl : image = "character_girl";   break;
+        }
+        //alert(task.text);
+        me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, image, task.text));
+    }
+    ,
     /**
      *  action to perform on state change
      */
@@ -18,10 +51,7 @@ game.PlayScreen = me.ScreenObject.extend({
 //        me.game.HUD.addItem("grenadesRemainsIcon", new game.GranadesRemainsHUD(450,10));
 
 
-        var message_intro = "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
-            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!";
-        this.dialogHUD = new game.DialogHUD(0, 320, "character_general", message_intro)
-        me.game.HUD.addItem("dialogHUD", this.dialogHUD);
+
 
 
         //me.game.HUD.addItem("lol", new game.panel());
@@ -47,6 +77,13 @@ game.PlayScreen = me.ScreenObject.extend({
         game.panel.draw();
         //FIXME: call timeToDie
 
+        //push first message
+        this.pushMessage(game.config.roles.General, "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
+            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!");
+        this.pushMessage(game.config.roles.General, "PREVED MEDVED!!!");
+
+        this.iterate();
+
         setInterval(function () {
             var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));
 //            console.log(typeof  remains);
@@ -63,11 +100,17 @@ game.PlayScreen = me.ScreenObject.extend({
             //me.game.HUD.updateItemValue("secondsToDie", -0.1);
         }, 1000);
     },
+    next : function(){
+        me.game.HUD.removeItem("dialogHUD");
+        this.iterate();
+
+    },
 
     update: function () {
         // enter pressed ?
         if (me.input.isKeyPressed('enter')) {
-            me.game.HUD.removeItem("dialogHUD");
+            if(this.iterating)
+                this.next();
         }
         return true;
     },
@@ -79,6 +122,6 @@ game.PlayScreen = me.ScreenObject.extend({
         ; // TODO
         // remove the HUD
         me.game.disableHUD();
-        me.input.unbindKey(me.input.KEY.ENTER);
+        //me.input.unbindKey(me.input.KEY.ENTER);
     }
 });
