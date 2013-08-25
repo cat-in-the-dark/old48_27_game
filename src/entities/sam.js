@@ -19,7 +19,7 @@ game.Sam = me.ObjectEntity.extend({
     me.input.bindKey( me.input.KEY.DOWN, "down" );
     this.directionString = "up";
     var directions = [ "up", "right", "down", "left" ];
-    
+
     for ( var i = 0; i < directions.length; i++ )  {
     	var index = i*3;
       this.renderable.addAnimation( directions[ i ] + "idle", [ index ] );
