@@ -7,7 +7,8 @@ game.TitleScreen = me.ScreenObject.extend({
 	/**	
 	 *  action to perform on state change
 	 */
-	onResetEvent: function() {	
+	onResetEvent: function() {
+        me.audio.playTrack("track1");
 		if (this.title == null) {
 			this.title = me.loader.getImage("welcome_screen");
 		}
