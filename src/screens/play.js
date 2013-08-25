@@ -45,6 +45,7 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function () {
+        me.audio.play('bomblaunch');
 
         me.game.addHUD(0, 0, 960, 480);
         // add a new HUD item
