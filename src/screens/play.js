@@ -22,7 +22,6 @@ game.PlayScreen = me.ScreenObject.extend({
             " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!";
         this.dialogHUD = new game.DialogHUD(0, 320, "character_general", message_intro)
         me.game.HUD.addItem("dialogHUD", this.dialogHUD);
-        me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
 
 
         //me.game.HUD.addItem("lol", new game.panel());
