@@ -88,6 +88,9 @@ game.PlayScreen = me.ScreenObject.extend({
         this.pushMessage(game.config.roles.General, "PREVED MEDVED!!!");
 
         this.iterate();
+        var shadow = new game.ShadowEntity();
+        me.game.add(shadow,game.config.SHADOW_LEVEL);
+        me.game.sort();//MAGICK
 
         setInterval(function () {
             if(game.timerPaused)
@@ -98,11 +101,11 @@ game.PlayScreen = me.ScreenObject.extend({
             remains -= 1;
             if (remains < 0) {
                 // call timeToDie!;
-                var bomb_x = game.sam.pos.x + (Math.random()*200 - 100);
-                var bomb_y = game.sam.pos.y + (Math.random()*200 - 100);
-                var bomb = new game.BombEntity(bomb_x,bomb_y);
-                me.game.add(bomb,game.config.BOMB_LEVEL);
-                me.game.sort();//MAGICK
+                shadow.bum();
+                me.game.HUD.setItemValue("grenadesRemains", game.nGranades-1);
+                if (game.nGrandes <= 0){
+                    me.state.change(me.state.GAME_END);
+                }
                 remains = 10;
             }
 //            console.log(remains.length);

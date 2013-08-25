@@ -4,7 +4,7 @@ var game = {
     comrads: [],
     sam: null,
     other_canvas: null,
-    nGranades: 30,
+    nGranades: 10,
     bomb: null,
     timerPaused: true,
 
@@ -14,6 +14,7 @@ var game = {
         //registry panel resize callback to video engine
         game.panel.init();
         me.sys.pauseOnBlur = false;//Не останавливать игру при потере фокуса
+        me.sys.gravity = 0.0;
         me.video.panelResize = game.panel.onResize;
 
         // Initialize the video.
