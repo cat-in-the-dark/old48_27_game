@@ -16,6 +16,9 @@ game.BombEntity = me.ObjectEntity.extend({
 
 	update: function(){
 		// do nothing if not in viewport
+    if (game.timerPaused){
+      return false;
+    }
     if (!this.inViewport)
     	return false;
 

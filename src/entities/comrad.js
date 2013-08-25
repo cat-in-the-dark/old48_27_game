@@ -89,6 +89,9 @@ game.Comrad = me.ObjectEntity.extend({
     },
 
     update: function () {
+        if (game.timerPaused){
+            return false;
+        }
         this.checkMovement();
         this.updateAnimation();
 
