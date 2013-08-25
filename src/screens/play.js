@@ -41,6 +41,7 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function () {
+        game.nGranades = 10;
         me.audio.play('bomblaunch');
 
         me.game.addHUD(0, 0, 960, 480);
@@ -105,14 +106,16 @@ game.PlayScreen = me.ScreenObject.extend({
                 return;
             var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));
             remains -= 1;
-            if (remains < 0) {
+            if (remains <= 0) {
                 // call timeToDie!;
-                shadow.bum();
-                me.game.HUD.setItemValue("grenadesRemains", game.nGranades--);
-                if (game.nGrandes <= 0){
+                game.nGranades--;
+                me.game.HUD.setItemValue("grenadesRemains", game.nGranades);
+                if (game.nGranades <= 0){
                     me.state.change(me.state.GAME_END);
+                    return;
                 }
                 remains = 10;
+                shadow.bum();
             }
         
             me.game.HUD.setItemValue("secondsToDie", remains);
@@ -128,9 +131,9 @@ game.PlayScreen = me.ScreenObject.extend({
     update: function () {
         // enter pressed ?
         if (me.input.isKeyPressed('enter')) {
-            console.log("press");
+           // console.log("press");
             if(this.iterating){
-                console.log("next");
+             //   console.log("next");
                 this.next();
             }
         }

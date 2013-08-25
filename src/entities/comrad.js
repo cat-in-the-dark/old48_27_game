@@ -32,13 +32,39 @@ game.Comrad = me.ObjectEntity.extend({
     },
 
     die: function(){
+        if (!this.alive){
+            return;
+        }
         this.collidable = false;
         this.alive = false;
         game.panel.kill(this.nickname);
         game.panel.draw();
         me.game.remove(this);
-        //game.playScreen.pushMessage(game.config.roles.Girl, "But I can...".toUpperCase());
-        //game.playScreen.iterate();
+        if (this.nickname.toUpperCase() == "PABLO") {
+            game.playScreen.pushMessage(game.config.roles.Girl, "Pablo left us. He is in the better world now.".toUpperCase());
+        } else if (this.nickname.toUpperCase() == "GUSTAV") {
+            game.playScreen.pushMessage(game.config.roles.Girl, "Gustav won't be able to play bass anymore. Bure his bass with him.".toUpperCase());
+        } else if (this.nickname.toUpperCase() == "UGO") {
+            game.playScreen.pushMessage(game.config.roles.Girl, "Ugo's favorite burrito... The last thing he has left.".toUpperCase());
+        } else if (this.nickname.toUpperCase() == "SERG") {
+            game.playScreen.pushMessage(game.config.roles.Girl, "Serg!! Today I cooked pelmeny he liked so much!".toUpperCase());
+        } else if (this.nickname.toUpperCase() == "TILL") {
+            game.playScreen.pushMessage(game.config.roles.Girl, "Till! He won't ever play HL3! Me too, I guess...".toUpperCase());
+        }
+        
+        if(!game.playScreen.iterating) {
+            game.playScreen.iterate();
+        }
+        var len = game.comrads.length
+        var a = len;
+        for (var i=0; i < len; i++){
+            if (!game.comrads[i].alive){
+                a--;
+            }
+        }
+        if (a<=0){
+            game.sam.die();
+        }
     },
 
     checkMovement: function () {

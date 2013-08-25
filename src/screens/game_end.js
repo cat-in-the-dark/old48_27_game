@@ -9,6 +9,11 @@ game.GameEndScreen = me.ScreenObject.extend({
 			this.title = me.loader.getImage("game_end_screen");
 		}
 		me.input.bindKey(me.input.KEY.ESC, "esc", true);
+
+		game.timerPaused = true;
+		game.comrads = [];
+		game.panel.clear();
+		game.panel.resetBackground();
 	},
 
 	draw: function(context) {
