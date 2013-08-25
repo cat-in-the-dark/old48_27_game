@@ -1,7 +1,7 @@
- function Task(role, text){
+function Task(role, text){
     this.role = role;
     this.text = text;
- }
+}
 game.PlayScreen = me.ScreenObject.extend({
 
     stack : [],
@@ -81,7 +81,6 @@ game.PlayScreen = me.ScreenObject.extend({
         game.panel.setPayload(names);
         //panel.kill('PABLO');
         game.panel.draw();
-        //FIXME: call timeToDie
 
         //push first message
         this.pushMessage(game.config.roles.General, "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
@@ -99,11 +98,16 @@ game.PlayScreen = me.ScreenObject.extend({
             remains -= 1;
             if (remains < 0) {
                 // call timeToDie!;
+                var bomb_x = game.sam.pos.x + (Math.random()*200 - 100);
+                var bomb_y = game.sam.pos.y + (Math.random()*200 - 100);
+                var bomb = new game.BombEntity(bomb_x,bomb_y);
+                me.game.add(bomb,game.config.BOMB_LEVEL);
+                me.game.sort();//MAGICK
                 remains = 10;
             }
 //            console.log(remains.length);
 //            console.log(remains);
-
+        
             me.game.HUD.setItemValue("secondsToDie", remains);
             //me.game.HUD.updateItemValue("secondsToDie", -0.1);
         }, 1000);

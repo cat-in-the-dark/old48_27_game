@@ -13,6 +13,7 @@ var game = {
 
         //registry panel resize callback to video engine
         game.panel.init();
+        me.sys.pauseOnBlur = false;//Не останавливать игру при потере фокуса
         me.video.panelResize = game.panel.onResize;
 
         // Initialize the video.
@@ -31,7 +32,6 @@ var game = {
         me.audio.init("mp3,ogg");
         //Import entities
 
-        me.entityPool.add("bomb", game.BombEntity);
         me.entityPool.add("sam", game.Sam);
         me.entityPool.add("comrad", game.Comrad);
 

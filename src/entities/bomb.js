@@ -1,6 +1,9 @@
 game.BombEntity = me.ObjectEntity.extend({
-	init: function(x, y, settings){
+	init: function(x, y){
+		var settings = new Object();
 		settings.image = "tempenemy";
+		settings.spritewidth = 48;
+		settings.spriteheight = 48;
 		this.parent(x, y, settings);
 
 		this.gravity = 0.0;
