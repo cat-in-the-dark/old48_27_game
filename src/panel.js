@@ -102,5 +102,12 @@ game.panel = {
             if (note.name == name)
                 note.alive = false;
         }
+    },
+    resetBackround : function(){
+        me.video.clearSurface(this.context2d, "#000000");
+    },
+    clear: function(){
+        this.deathNote = [];
+        this.draw();
     }
 };
