@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CAT_IN_THE_DARK_WOOD</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+</head>
+<body>
+<div id="container" style="margin: auto;display: block">
+    <table>
+        <tr>
+            <td>
+                <div id="screen"></div>
+            </td>
+            <td>
+                <div id="screen2"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <p>Control keys - Up, Down, Left, Right arrors and Enter</p>
+    <span id="framecounter">(0/0 fps)</span>
+    <p>Music track: "Triarii – On Wings Of Steel" - just for fun.</p>
+    <p>Pics by Eva</p>
+    <p>Code by Ilya, Kirill, Alex</p>
+    <a href="https://github.com/blan4/old48_27_game" target="_blank">GitHub repo!</a>
+</div>
+
+<!-- melonJS Library -->
+<script type="text/javascript" src="vendor/melonJS-0.9.8.js"></script>
+
+<!-- Plugin(s) -->
+<script type="text/javascript" src="vendor/plugins/debugPanel.js"></script>
+
+<!-- Game Scripts -->
+<script type="text/javascript" src="src/game.js"></script>
+<script type="text/javascript" src="src/config.js"></script>
+<script type="text/javascript" src="src/resources.js"></script>
+
+<script type="text/javascript" src="src/entities/sam.js"></script>
+<script type="text/javascript" src="src/entities/comrad.js"></script>
+<script type="text/javascript" src="src/entities/bomb.js"></script>
+<script type="text/javascript" src="src/entities/shadow.js"></script>
+
+<script type="text/javascript" src="src/screens/title.js"></script>
+<script type="text/javascript" src="src/screens/play.js"></script>
+<script type="text/javascript" src="src/screens/gameover.js"></script>
+<script type="text/javascript" src="src/screens/game_end.js"></script>
+<script type="text/javascript" src="src/screens/intro.js"></script>
+<script type="text/javascript" src="src/panel.js"></script>
+<script type="text/javascript" src="src/hud.js"></script>
+<script type="text/javascript">
+    window.onReady(function onReady() {
+        game.onload();
+    });
+</script>
+</body>
+</html>
