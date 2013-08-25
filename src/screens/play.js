@@ -6,12 +6,13 @@ game.PlayScreen = me.ScreenObject.extend({
 
         me.game.addHUD(0, 0, 960, 480);
         // add a new HUD item
-        me.game.HUD.addItem("secondToDie", new game.SecondsRemainsHUD(900,10));
+        me.game.HUD.addItem("secondsToDie", new game.SecondsRemainsHUD(600,10));
+        me.game.HUD.updateItemValue("secondsToDie", 10);
         me.game.HUD.addItem("dialogHUD", new game.DialogHUD(0, 320, "test_character", "WELCOME, COMMRAD!\nPREPARE TO HELL!"));
         //me.game.HUD.addItem("panel-top", new me.SpriteObject(0, 0, me.loader.getImage("panel-top")));
        //me.game.HUD.addItem("lol", new game.panel());
         //me.game.HUD.addItem("score2", new game.ScoreObject(300, 10));
-        me.game.HUD.updateItemValue("secondToDie", 8.8);
+        //me.game.HUD.updateItemValue("secondToDie", 8.8);
 
         //me.game.HUD.addItem("ui", new game.UI());
         //me.game.HUD.add(new game.HUD_Heart(0,0));
@@ -29,6 +30,23 @@ game.PlayScreen = me.ScreenObject.extend({
         panel.setPayload(names);
         panel.kill('PABLO');
         panel.draw();
+        //FIXME: call timeToDie
+
+        setInterval(function (){
+            var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));
+//            console.log(typeof  remains);
+//            console.log(remains);
+            remains -= 1;
+            if(remains < 0){
+                // call timeToDie!;
+                remains = 10;
+            }
+            console.log(remains.length);
+            console.log(remains);
+
+            me.game.HUD.setItemValue("secondsToDie", remains);
+            //me.game.HUD.updateItemValue("secondsToDie", -0.1);
+        },1000);
     },
 
 
