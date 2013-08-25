@@ -20,6 +20,7 @@ game.ShadowEntity = me.ObjectEntity.extend({
     game.shadow = this;
   },
   bum: function(){
+    me.audio.playTrack("bum");
     var bomb = new game.BombEntity(this.pos.x+this.width/4,this.pos.y+this.height/4);
     me.game.add(bomb,game.config.BOMB_LEVEL);
     me.game.sort();
@@ -28,6 +29,7 @@ game.ShadowEntity = me.ObjectEntity.extend({
         game.comrads[i].die();
       }
     }
+
     return bomb;
   },
 
