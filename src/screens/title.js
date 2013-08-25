@@ -12,7 +12,7 @@ game.TitleScreen = me.ScreenObject.extend({
 		if (this.title == null) {
 			this.title = me.loader.getImage("welcome_screen");
 		}
-		me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+		//me.input.bindKey(me.input.KEY.ENTER, "enter", true);
 	},
 	
 	draw: function(context) {
@@ -33,6 +33,6 @@ game.TitleScreen = me.ScreenObject.extend({
 	 */
 	onDestroyEvent: function() {
 		this.title = null;
-		me.input.unbindKey(me.input.KEY.ENTER);
+		//me.input.unbindKey(me.input.KEY.ENTER);
 	}
 });

@@ -14,10 +14,6 @@ game.PlayScreen = me.ScreenObject.extend({
         this.stack.push(new Task(role, text));
     },
     iterate : function(){
-//        var message_intro = "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
-//            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!";
-//        this.dialogHUD = new game.DialogHUD(0, 320, "character_general", message_intro)
-//        me.game.HUD.addItem("dialogHUD", this.dialogHUD);
 
         this.iterating = true;
         game.timerPaused = true;
@@ -70,7 +66,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
         // make sure everything is in the right order
         me.game.sort();
-        me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+       // me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.levelDirector.loadLevel("area1");
 
         var names = [];
@@ -108,8 +104,6 @@ game.PlayScreen = me.ScreenObject.extend({
             if(game.timerPaused)
                 return;
             var remains = parseFloat(me.game.HUD.getItemValue("secondsToDie"));
-//            console.log(typeof  remains);
-//            console.log(remains);
             remains -= 1;
             if (remains < 0) {
                 // call timeToDie!;
@@ -120,8 +114,6 @@ game.PlayScreen = me.ScreenObject.extend({
                 }
                 remains = 10;
             }
-//            console.log(remains.length);
-//            console.log(remains);
         
             me.game.HUD.setItemValue("secondsToDie", remains);
             //me.game.HUD.updateItemValue("secondsToDie", -0.1);
@@ -136,8 +128,11 @@ game.PlayScreen = me.ScreenObject.extend({
     update: function () {
         // enter pressed ?
         if (me.input.isKeyPressed('enter')) {
-            if(this.iterating)
+            console.log("press");
+            if(this.iterating){
+                console.log("next");
                 this.next();
+            }
         }
         if (!game.shadow.inViewport){
             game.shadow.update();

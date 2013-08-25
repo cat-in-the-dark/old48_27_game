@@ -6,7 +6,7 @@ game.Sam = me.ObjectEntity.extend({
         this.nickname = settings.nickname || "Sam";
 
         this.gravity = 0.0;
-        this.origVelocity = new me.Vector2d(7.0, 7.0);
+        this.origVelocity = new me.Vector2d(6.0, 6.0);
         this.setVelocity(this.origVelocity.x, this.origVelocity.y);
         this.setFriction(0.35, 0.35);
         this.direction = new me.Vector2d(0.0, 1.0);

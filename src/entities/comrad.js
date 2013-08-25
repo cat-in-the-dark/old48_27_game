@@ -11,7 +11,6 @@ game.Comrad = me.ObjectEntity.extend({
         this.setFriction(0.55, 0.55);
 
         this.range = Math.random() * game.config.circleDist + game.config.minDist;
-        // this.updateColRect(-1, 0, 4, 30);
 
         this.directionString = "up";
         var directions = [ "up", "right", "down", "left" ];
@@ -38,6 +37,8 @@ game.Comrad = me.ObjectEntity.extend({
         game.panel.kill(this.nickname);
         game.panel.draw();
         me.game.remove(this);
+        //game.playScreen.pushMessage(game.config.roles.Girl, "But I can...".toUpperCase());
+        //game.playScreen.iterate();
     },
 
     checkMovement: function () {
@@ -62,9 +63,6 @@ game.Comrad = me.ObjectEntity.extend({
     },
 
     update: function () {
-        if (!this.inViewport){
-            console.log("AAA");
-        }
         this.checkMovement();
         this.updateAnimation();
 
