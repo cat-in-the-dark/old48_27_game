@@ -84,9 +84,18 @@ game.PlayScreen = me.ScreenObject.extend({
         game.panel.draw();
 
         //push first message
-        this.pushMessage(game.config.roles.General, "WELCOME, COMMRAD! PREPARE TO HELL! PRESS ENTER TO HIDE THIS MESSAGE." +
-            " TRATATA TRATATA MY VEZEM S SOBOJ KOTA!!!");
-        this.pushMessage(game.config.roles.General, "PREVED MEDVED!!!");
+        this.pushMessage(game.config.roles.General, "Hello Sam! Congrats on landing in target square! Clear this site, comrade!".toUpperCase());
+        this.pushMessage(game.config.roles.Girl, "Ohh.. My Gen, bad news for you! Mr, Prapor ".toUpperCase() +
+            "stole 300 gallons of fuel again!".toUpperCase());
+        this.pushMessage(game.config.roles.General, "Arrrgh! I cant believe it! That was the".toUpperCase()  +
+            " last drop! Where is my RED_BUTTON? I need relaxation".toUpperCase());
+        this.pushMessage(game.config.roles.Girl, "But I can...".toUpperCase());
+        this.pushMessage(game.config.roles.General, "NO!".toUpperCase());
+        this.pushMessage(game.config.roles.Girl, "Sammy, be careful! He is going crazy! ".toUpperCase()  +
+            "Nobody knows what he will do with RED_BUTTON!".toUpperCase());
+        this.pushMessage(game.config.roles.General, "Nice to meet you again, Sammy! I see you still alive!".toUpperCase()  +
+            " I'm curious how fast you can run! I have 30 rockets and you have 10 seconds! Good luck, Save the comrades".toUpperCase());
+
 
         this.iterate();
 
