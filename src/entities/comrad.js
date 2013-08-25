@@ -62,6 +62,9 @@ game.Comrad = me.ObjectEntity.extend({
     },
 
     update: function () {
+        if (!this.inViewport){
+            console.log("AAA");
+        }
         this.checkMovement();
         this.updateAnimation();
 

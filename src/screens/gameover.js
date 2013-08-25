@@ -2,8 +2,6 @@ game.GameOverScreen = me.ScreenObject.extend({
 	init: function() {
 		this.parent(true);
 		this.title = null;
-//        game.panel.clear();
-//        game.panel.resetBackround();
 	},
 
 	onResetEvent: function() {
@@ -12,6 +10,12 @@ game.GameOverScreen = me.ScreenObject.extend({
 			this.title = me.loader.getImage("gameover_screen");
 		}
 		me.input.bindKey(me.input.KEY.ESC, "esc", true);
+
+
+		game.timerPaused = true;
+		game.comrads = [];
+		game.panel.clear();
+		game.panel.resetBackground();
 	},
 
 	draw: function(context) {

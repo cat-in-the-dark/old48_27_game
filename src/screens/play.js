@@ -78,7 +78,9 @@ game.PlayScreen = me.ScreenObject.extend({
             names.push(game.comrads[i].nickname.toUpperCase());
         }
         //alert(names);
-        game.panel.setPayload(names);
+        game.panel.setPayload(game.comrads.map(function(el){
+            return el.nickname;
+        }));
         //panel.kill('PABLO');
         game.panel.draw();
 
@@ -102,7 +104,7 @@ game.PlayScreen = me.ScreenObject.extend({
             if (remains < 0) {
                 // call timeToDie!;
                 shadow.bum();
-                me.game.HUD.setItemValue("grenadesRemains", game.nGranades-1);
+                me.game.HUD.setItemValue("grenadesRemains", game.nGranades--);
                 if (game.nGrandes <= 0){
                     me.state.change(me.state.GAME_END);
                 }
@@ -126,6 +128,9 @@ game.PlayScreen = me.ScreenObject.extend({
         if (me.input.isKeyPressed('enter')) {
             if(this.iterating)
                 this.next();
+        }
+        if (!game.shadow.inViewport){
+            game.shadow.update();
         }
         return true;
     },

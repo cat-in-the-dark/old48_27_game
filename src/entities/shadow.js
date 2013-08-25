@@ -17,12 +17,17 @@ game.ShadowEntity = me.ObjectEntity.extend({
     this.collidable = false;
     this.type = me.game.SHADOW;
 
-    return this;
+    game.shadow = this;
   },
   bum: function(){
     var bomb = new game.BombEntity(this.pos.x+this.width/4,this.pos.y+this.height/4);
     me.game.add(bomb,game.config.BOMB_LEVEL);
     me.game.sort();
+    for (var i = 0, len = game.comrads.length; i < len; ++i){
+      if (!game.comrads[i].inViewport){
+        game.comrads[i].die();
+      }
+    }
     return bomb;
   },
 

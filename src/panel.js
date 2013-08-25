@@ -83,9 +83,9 @@ game.panel = {
         for (var i = 0; i < this.deathNote.length; i++) {
             var note = this.deathNote[i];
             if (note.alive == true)
-                this.font.draw(this.context2d, note.name, this.titleSize / 32 * x, this.titleSize / 32 * currentY);
+                this.font.draw(this.context2d, note.name.toUpperCase(), this.titleSize / 32 * x, this.titleSize / 32 * currentY);
             else
-                this.fontCrossed.draw(this.context2d, note.name, this.titleSize / 32 * x, this.titleSize / 32 * currentY);
+                this.fontCrossed.draw(this.context2d, note.name.toUpperCase(), this.titleSize / 32 * x, this.titleSize / 32 * currentY);
             currentY += lineInterval;
         }
     },
@@ -99,11 +99,11 @@ game.panel = {
         name = name.toUpperCase();
         for (var i = 0; i < this.deathNote.length; i++) {
             var note = this.deathNote[i];
-            if (note.name == name)
+            if (note.name.toUpperCase() == name)
                 note.alive = false;
         }
     },
-    resetBackround : function(){
+    resetBackground : function(){
         me.video.clearSurface(this.context2d, "#000000");
     },
     clear: function(){

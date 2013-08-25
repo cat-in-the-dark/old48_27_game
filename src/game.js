@@ -28,7 +28,7 @@ var game = {
                 me.plugin.register.defer(debugPanel, "debug");
             });
         }
-        me.debug.renderHitBox = true;
+        //me.debug.renderHitBox = true;
         // Initialize the audio.
         me.audio.init("mp3,ogg");
         //Import entities
@@ -59,7 +59,7 @@ var game = {
 
         //покрасим панель
         //game.panel.draw();
-        game.panel.resetBackround();
+        game.panel.resetBackground();
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
