@@ -34,6 +34,13 @@ game.Sam = me.ObjectEntity.extend({
         game.sam = this;
     },
 
+    die: function(){
+        this.collidable = false;
+        this.alive = false;
+        me.game.remove(this);
+        me.state.change(me.state.GAMEOVER);
+    },
+
     checkMovement: function () {
         var tempDir = new me.Vector2d(0.0, 0.0);
         //Prepare movement

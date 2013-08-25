@@ -19,7 +19,7 @@ game.BombEntity = me.ObjectEntity.extend({
     if (res){
     	for (var i = 0, len = res.length; i < len; ++i){
     		if (res[i].obj.type === me.game.COMRADE_OBJECT ){
-    			res[i].obj.renderable.flicker(45);
+    			res[i].obj.die();
     		}
     	}
     }
