@@ -105,13 +105,6 @@
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="comrad" x="39" y="623" width="32" height="32">
-   <properties>
-    <property name="nickname" value="Ugo"/>
-    <property name="spriteheight" value="32"/>
-    <property name="spritewidth" value="32"/>
-   </properties>
-  </object>
  </objectgroup>
  <layer name="collision" width="25" height="25">
   <data encoding="base64">

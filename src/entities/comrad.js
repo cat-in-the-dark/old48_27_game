@@ -32,6 +32,14 @@ game.Comrad = me.ObjectEntity.extend({
         this.posY = Math.floor(this.index / game.config.rowLength + 1) * 48;
     },
 
+    die: function(){
+        this.collidable = false;
+        this.alive = false;
+        game.panel.kill(this.nickname);
+        game.panel.draw();
+        me.game.remove(this);
+    },
+
     checkMovement: function () {
         var dist = this.distanceTo(game.sam);
         var distX = Math.cos(this.angleTo(game.sam)) * dist;

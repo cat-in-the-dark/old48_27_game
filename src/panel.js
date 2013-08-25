@@ -96,10 +96,15 @@ game.panel = {
             this.deathNote.push(new PlayerStat(deathList[i]));
     },
     "kill": function (name) {
+        name = name.toUpperCase();
         for (var i = 0; i < this.deathNote.length; i++) {
             var note = this.deathNote[i];
             if (note.name == name)
                 note.alive = false;
         }
+    },
+    clear: function(){
+        this.deathNote = [];
+        this.draw();
     }
 };
