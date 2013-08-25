@@ -9,8 +9,9 @@ game.resources = [
     {name: "sam", type: "image", src: "resources/img/sam.png"},
     {name: "comrad", type: "image", src: "resources/img/comrad.png"},
     {name: "tempenemy", type: "image", src: "resources/img/tempenemy.png" },
+    {name: "shadow", type: "image", src: "resources/img/shadow.png" },
+    {name: "grob", type: "image", src: "resources/img/grob.png" },
 
-    {name: "panel-top", type: "image", src: "resources/img/panel.png"},
     {name: "panel-left", type: "image", src: "resources/img/panel-left.png"},
 
     {name: "welcome_screen", type: "image", src: "resources/img/welcome_screen.png"},
