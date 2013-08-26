@@ -17,9 +17,6 @@ body {
     margin: 0;
 }
 
-#screen {
-    margin-top: -20px;
-}
 
 #screen canvas {
     margin: auto;
@@ -34,10 +31,6 @@ body {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: optimize-contrast;
     -ms-interpolation-mode: nearest-neighbor;
-}
-
-#screen2 {
-    margin-top: -20px;
 }
 
 #screen2 canvas {

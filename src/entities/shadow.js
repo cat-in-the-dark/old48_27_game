@@ -9,7 +9,7 @@ game.ShadowEntity = me.ObjectEntity.extend({
     var y = game.sam.pos.y;
     this.parent(x,y,settings);
 
-    this.origVelocity = new me.Vector2d(2.5, 2.5);
+    this.origVelocity = new me.Vector2d(3.0, 3.0);
     this.setVelocity(this.origVelocity.x, this.origVelocity.y);
     this.setFriction(0.1, 0.1);
 

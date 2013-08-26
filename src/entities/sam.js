@@ -1,4 +1,3 @@
-// TODO
 game.Sam = me.ObjectEntity.extend({
     init: function (x, y, settings) {
         settings.image = "sam";
@@ -6,12 +5,10 @@ game.Sam = me.ObjectEntity.extend({
         this.nickname = settings.nickname || "Sam";
 
         this.gravity = 0.0;
-        this.origVelocity = new me.Vector2d(6.0, 6.0);
+        this.origVelocity = new me.Vector2d(5.0, 5.0);
         this.setVelocity(this.origVelocity.x, this.origVelocity.y);
         this.setFriction(0.35, 0.35);
         this.direction = new me.Vector2d(0.0, 1.0);
-
-        // this.updateColRect(-1, 0, 4, 30);
 
         me.input.bindKey(me.input.KEY.LEFT, "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
