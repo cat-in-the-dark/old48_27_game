@@ -8,3 +8,11 @@ Team.name = CAT_IN_THE_DARK_WOOD
 Team.Painter = Eva; 
 
 Team.Coders = [Ilya, Kirill, Alex]
+
+Team.Logo = 
+
+![](https://raw.github.com/blan4/old48_27_game/master/resources/img/logo.jpg)
+
+Game.preview = 
+
+![](https://raw.github.com/blan4/old48_27_game/master/resources/img/welcome_screen.png)
