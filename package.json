@@ -1,0 +1,28 @@
+{
+  "name": "Save the comrades",
+  "version": "1.0.0",
+  "description": "Survival game in js with melonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cat-in-the-dark/old48_27_game"
+  },
+  "keywords": [
+    "Electron",
+    "melonjs",
+    "ludum dare",
+    "omsk"
+  ],
+  "author": "CAT_IN_THE_DARK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cat-in-the-dark/old48_27_game/issues"
+  },
+  "homepage": "https://catinthedark.itch.io/save-the-comrades",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0"
+  }
+}
