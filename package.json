@@ -1,5 +1,6 @@
 {
   "name": "Save the comrades",
+  "productName": "Save the comrades",
   "version": "1.0.0",
   "description": "Survival game in js with melonjs",
   "main": "main.js",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://catinthedark.itch.io/save-the-comrades",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "1.3.4",
+    "electron": "1.3.4"
   }
 }
